@@ -50,11 +50,13 @@ public class ApkSign {
                         }
                     }
                 }
+
+                jarFile.close();
+
+                return new String(toChars(certs[0].getEncoded()));
             }
 
-            jarFile.close();
-
-            return new String(toChars(certs[0].getEncoded()));
+            return null;
 
         } catch (Exception e) {
             // apk 解析出错，直接返回null
